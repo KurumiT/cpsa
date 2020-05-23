@@ -30,7 +30,7 @@ class Menu extends React.Component<PropsInterface, StateInterface> {
 
   public render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <a className="navbar-brand" href="#">
           {this.props.showCustomTitle ? (
             <>
@@ -62,10 +62,10 @@ class Menu extends React.Component<PropsInterface, StateInterface> {
         >
           <div className="navbar-nav">
             <Link to="/" className="nav-item nav-link" href="#">
-              Home
+              Мои машины
             </Link>
             <Link to="/cars" className="nav-item nav-link" href="#">
-              Cars
+              Калькулятор
             </Link>
           </div>
         </div>

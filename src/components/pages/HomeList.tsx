@@ -50,8 +50,8 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
                     <div className="card-body">
                       <h5 className="card-title">{Car.name}</h5>
 
-                      <a href="#" className="btn btn-primary">
-                        Разверника
+                      <a href="#" className="btn btn-primary btn-block">
+                        Статистика
                       </a>
                     </div>
                   </div>
@@ -59,7 +59,7 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
               })}
             </>
           ) : (
-            <h1>Тачек нету, но ты возьми вот тут</h1>
+            <h3>Вы пока не добавили машины</h3>
           )}
           <div className="card card__car">
             <div className="card-body">

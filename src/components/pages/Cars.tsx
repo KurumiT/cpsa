@@ -40,7 +40,7 @@ class carsPage extends React.Component<PropsInterface, StateInterface> {
       selectedBrand: null,
       selectedModel: null,
       selectedGeneration: null,
-      title: "Brands",
+      title: "Брэнды",
       brandImage: "",
       brandName: "",
       modelName: "",
@@ -88,7 +88,10 @@ class carsPage extends React.Component<PropsInterface, StateInterface> {
   componentDidUpdate(prevProps: any) {
     if (prevProps !== this.props) {
       if (this.props.Store.Car.description !== undefined) {
-        const days = this.props.Store.Car.description.historical.day;
+        const days = this.props.Store.Car.description.historical.day.slice(
+          0,
+          30
+        );
         const dayLabel: any = [];
         const formatDays: any = [];
         days.map((day: any) => {
@@ -96,7 +99,8 @@ class carsPage extends React.Component<PropsInterface, StateInterface> {
             x: day[0],
             y: day[1],
           });
-          dayLabel.push(this.dayFormatter(day[0]));
+          // dayLabel.push(this.dayFormatter(day[0]));
+          dayLabel.push(new Date(day[0] * 1000).getDate());
         });
         const weeks = this.props.Store.Car.description.historical.week;
         const weekLabel: any = [];
@@ -156,7 +160,7 @@ class carsPage extends React.Component<PropsInterface, StateInterface> {
 
                           this.setState({
                             selectedBrand: Brand.id,
-                            title: "Models",
+                            title: "Модели",
                             brandImage: Brand.preview,
                             brandName: Brand.name,
                           });
@@ -202,7 +206,7 @@ class carsPage extends React.Component<PropsInterface, StateInterface> {
 
                           this.setState({
                             selectedModel: Model.id,
-                            title: "Generation",
+                            title: "Поколения",
                             modelName: Model.name,
                           });
                         }}
@@ -440,8 +444,8 @@ class carsPage extends React.Component<PropsInterface, StateInterface> {
           </div>
           {this.state.brandName && this.state.showFooter ? (
             <div className="footer">
-              {this.state.brandName}
               <img className="footer-img" src={this.state.brandImage} alt="" />
+              {this.state.brandName}{" "}
               {this.state.modelName + " " + this.state.generationName}
             </div>
           ) : (
