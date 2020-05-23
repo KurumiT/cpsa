@@ -51,7 +51,7 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
                       <h5 className="card-title">{Car.name}</h5>
 
                       <Link to={"/graph/" + Car.id} className="btn btn-primary">
-                        Разверника
+                        Статистика
                       </Link>
                     </div>
                   </div>
@@ -59,7 +59,7 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
               })}
             </>
           ) : (
-            <h1>Тачек нету, но ты возьми вот тут</h1>
+            <h3>Вы пока не добавили машины</h3>
           )}
           <div className="card card__car">
             <div className="card-body">
