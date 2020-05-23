@@ -39,6 +39,7 @@ class Page extends React.Component<PropsInterface, StateInterface> {
                   component={Component.Page.homeListPage}
                 />
                 <Router path="/cars" component={Component.Page.carsPage} />
+                <Router path="/graph/:id" component={Component.Page.graphPage} />
               </Switch>
               {/* End Programs */}
             </main>

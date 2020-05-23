@@ -50,9 +50,9 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
                     <div className="card-body">
                       <h5 className="card-title">{Car.name}</h5>
 
-                      <a href="#" className="btn btn-primary">
+                      <Link to={"/graph/" + Car.id} className="btn btn-primary">
                         Разверника
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 );
