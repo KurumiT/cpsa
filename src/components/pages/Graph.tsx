@@ -70,7 +70,10 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
   componentDidUpdate(prevProps: any) {
     if (prevProps !== this.props) {
       if (this.props.Store.Car.description !== undefined) {
-        const days = this.props.Store.Car.description.historical.day;
+        const days = this.props.Store.Car.description.historical.day.slice(
+          0,
+          30
+        );
         const dayLabel: any = [];
         const formatDays: any = [];
         days.map((day: any) => {
@@ -78,7 +81,8 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
             x: day[0],
             y: day[1],
           });
-          dayLabel.push(this.dayFormatter(day[0]));
+          // dayLabel.push(this.dayFormatter(day[0]));
+          dayLabel.push(new Date(day[0] * 1000).getDate());
         });
         const weeks = this.props.Store.Car.description.historical.week;
         const weekLabel: any = [];
