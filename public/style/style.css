@@ -25,6 +25,15 @@ body {
   width: 100%;
   z-index: 10;
   max-width: 100%;
+  overflow: hidden;
+}
+.navbar-brand p {
+  margin: 0;
+}
+.navbar-light .navbar-toggler {
+  position: absolute;
+  right: 20px;
+  background-color: white;
 }
 .list-containter {
   display: flex;
@@ -89,6 +98,12 @@ body {
   left: 0;
   font-family: "Roboto Bold";
   font-size: 30px;
+}
+.footer .footer-img {
+  height: 50px;
+}
+.title-img {
+  height: 30px;
 }
 
 /* home */

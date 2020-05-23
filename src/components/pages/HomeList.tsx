@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import AsyncStorage from "@react-native-community/async-storage";
 import Menu from "../menu";
 
 interface PropsInterface {
@@ -21,12 +22,24 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
     };
   }
 
-  public componentDidMount() {}
+  public componentDidMount() {
+    const getData = async () => {
+      try {
+        const value = await AsyncStorage.getItem("generation");
+        if (value !== null) {
+          // value previously stored
+          console.log(value);
+        }
+      } catch (e) {
+        // error reading value
+      }
+    };
+  }
 
   public render() {
     return (
       <>
-        <Menu Title="Отслеживание" />
+        <Menu title="Отслеживание" />
         <div className="page">
           {this.props.Store.Car.list.length > 0 ? (
             <>
@@ -36,7 +49,7 @@ class homeListPage extends React.Component<PropsInterface, StateInterface> {
                     <img src={Car.preview} className="card-img-top" alt="..." />
                     <div className="card-body">
                       <h5 className="card-title">{Car.name}</h5>
-                     
+
                       <a href="#" className="btn btn-primary">
                         Разверника
                       </a>

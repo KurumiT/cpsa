@@ -73,4 +73,24 @@ export default class Car {
       Dispatch(Store.Car.addCar(data));
     };
   }
+  /**
+   * Получение всех генераций
+   *
+   * @return function(Dispatch)->Car
+   */
+  public static getDescription(data: any) {
+    return (Dispatch: any) => {
+      Dispatch(Store.Car.setLoadingStatus(true));
+      new Models.Car()
+        .getDescription(data)
+        .then((data: any) => {
+          Dispatch(Store.Car.setLoadingStatus(false));
+          Dispatch(Store.Car.setDescription(data));
+        })
+        .catch((Exception: any) => {
+          Dispatch(Store.Car.setLoadingStatus(false));
+          Dispatch(Store.Car.setError(Exception));
+        });
+    };
+  }
 }

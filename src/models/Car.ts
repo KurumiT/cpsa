@@ -31,4 +31,14 @@ export default class Car extends ModelPrototype {
       throw Exception;
     }
   }
+  public async getDescription(data: any): Promise<any[]> {
+    try {
+      return this.withUrl("statistic/" + data.generation_id)
+        .setMethod(Method.GET)
+        .baseUrl("http://78.47.228.118:5550/")
+        .request();
+    } catch (Exception) {
+      throw Exception;
+    }
+  }
 }

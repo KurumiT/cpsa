@@ -6,6 +6,7 @@ export default class Car {
   public static readonly SET_BRANDS = "CAR_SET_BRANDS";
   public static readonly SET_MODELS = "CAR_SET_MODELS";
   public static readonly SET_GENERATIONS = "CAR_SET_GENERATIONS";
+  public static readonly SET_DESCRIPTION = "CAR_SET_DESCRIPTION";
   public static readonly CLEAR = "CAR_CLEAR";
 
   public static setLoadingStatus(data: any) {
@@ -48,6 +49,12 @@ export default class Car {
     return {
       data,
       type: Car.SET_GENERATIONS,
+    };
+  }
+  public static setDescription(data: any) {
+    return {
+      data,
+      type: Car.SET_DESCRIPTION,
     };
   }
   public static Clear(data: any) {

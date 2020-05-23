@@ -6,7 +6,12 @@ interface PropsInterface {
   location: any;
   Store: any;
   Dispatch: any;
-  Title: string;
+  title: string;
+  brandName: string;
+  brandImage: string;
+  modelName: string;
+  generationName: string;
+  showCustomTitle: boolean;
 }
 
 interface StateInterface {
@@ -27,7 +32,17 @@ class Menu extends React.Component<PropsInterface, StateInterface> {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
-          {this.props.Title}
+          {this.props.showCustomTitle ? (
+            <>
+              <p>
+                {this.props.brandName}{" "}
+                <img className="title-img" src={this.props.brandImage} alt="" />{" "}
+                {this.props.modelName} {this.props.generationName}
+              </p>
+            </>
+          ) : (
+            this.props.title
+          )}
         </a>
         <button
           className="navbar-toggler"

@@ -41,6 +41,11 @@ export default function Car(state = init, action: any) {
         ...state,
         generations: action.data,
       };
+    case Action.Store.Car.SET_DESCRIPTION:
+      return {
+        ...state,
+        description: action.data,
+      };
     case Action.Store.Car.SET_ERROR:
       return {
         ...state,
